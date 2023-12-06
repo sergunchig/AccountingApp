@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AccountingApp.Models;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Windows;
 
@@ -13,6 +14,7 @@ namespace AccountingApp
                 .ConfigureServices((hostContext,  services) =>
                 {
                     services.AddSingleton<MainWindow>();
+                    services.AddTransient<AppDbContext>();
                 }).Build();
         }
         protected override async void OnStartup(StartupEventArgs e)
