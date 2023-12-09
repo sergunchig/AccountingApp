@@ -4,11 +4,26 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AccountingApp.Views"
+      xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+      
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CostCathegoryPage">
-
     <Grid>
-        <TextBlock Text="CostCathegoryPage" FontSize="50"/>
+        <DataGrid x:Name="CatCostDg" AutoGenerateColumns="False" CanUserAddRows="False"
+                  Width="500" HorizontalAlignment="Left" ItemsSource="{Binding Cathegories}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Категория" Binding="{Binding Path=Title}"
+                                    Width="480"/>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="addCatMn" Header="Добавить" Click="addCatMn_Click"/>
+                    <MenuItem x:Name="EditCatMn" Header="Редактировать" Click="EditCatMn_Click"/>
+                    <MenuItem x:Name="DelCatMn" Header="Удалить" Click="DelCatMn_Click"/>
+                    <MenuItem x:Name="RefreshCatMn" Header="Обновить" Click="RefreshCatMn_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
     </Grid>
 </Page>

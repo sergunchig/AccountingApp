@@ -26,10 +26,27 @@ namespace AccountingApp.Views
         public CostsPage(AppDbContext context)
         {
             _db = context;
-
-
-
             InitializeComponent();
+        }
+
+        private void addCatMn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditCatMn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DelCatMn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RefreshCatMn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
