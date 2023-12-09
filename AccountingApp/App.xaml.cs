@@ -1,7 +1,10 @@
 ﻿using AccountingApp.Models;
+using AccountingApp.Services;
+using AccountingApp.Views;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Windows;
+using System.Windows.Navigation;
 
 namespace AccountingApp
 {
@@ -14,7 +17,12 @@ namespace AccountingApp
                 .ConfigureServices((hostContext,  services) =>
                 {
                     services.AddSingleton<MainWindow>();
-                    services.AddTransient<AppDbContext>();
+                    services.AddDbContext<AppDbContext>();
+
+                    services.AddTransient<AppNavigationService>();
+
+                    services.AddPages();
+
                 }).Build();
         }
         protected override async void OnStartup(StartupEventArgs e)
