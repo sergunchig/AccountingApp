@@ -5,28 +5,28 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AccountingApp.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="400" d:DesignWidth="800"
       Title="CostsPage">
 
     <Grid>
-        <DataGrid x:Name="CatCostDg" AutoGenerateColumns="False" CanUserAddRows="False"
+        <DataGrid x:Name="CostDg" AutoGenerateColumns="False" CanUserAddRows="False"
                   Width="800" HorizontalAlignment="Center" ItemsSource="{Binding Cathegories}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Дата" Binding="{Binding Path=Date}"
-                                    Width="100"/>
+                                    Width="130"/>
                 <DataGridTextColumn Header="Категория" Binding="{Binding Path=Cathegory}"
-                                    Width="250"/>
+                                    Width="170"/>
                 <DataGridTextColumn Header="Стоимость" Binding="{Binding Path=Price}"
                                     Width="100"/>
-                <DataGridTextColumn Header="Комментарий" Binding="{Binding Path=Comment}"
+                <DataGridTextColumn Header="Комментарий" Binding="{Binding Path=Description}"
                                     Width="500"/>
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
                 <ContextMenu>
-                    <MenuItem x:Name="addCatMn" Header="Добавить" Click="addCatMn_Click"/>
-                    <MenuItem x:Name="EditCatMn" Header="Редактировать" Click="EditCatMn_Click"/>
-                    <MenuItem x:Name="DelCatMn" Header="Удалить" Click="DelCatMn_Click"/>
-                    <MenuItem x:Name="RefreshCatMn" Header="Обновить" Click="RefreshCatMn_Click"/>
+                    <MenuItem x:Name="addCostMn" Header="Добавить" Click="addCostMn_Click"/>
+                    <MenuItem x:Name="EditCostMn" Header="Редактировать" Click="EditCostMn_Click"/>
+                    <MenuItem x:Name="DelCostMn" Header="Удалить" Click="DelCostMn_Click"/>
+                    <MenuItem x:Name="RefreshCostMn" Header="Обновить" Click="RefreshCostMn_Click"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
         </DataGrid>

@@ -95,7 +95,7 @@ namespace AccountingApp.Views
         }
         private void RefreshCatMn_Click(object sender, RoutedEventArgs e)
         {
-            CatCostDg.ItemsSource = _db.Cathegories;
+            CatCostDg.ItemsSource = _db.Cathegories.AsNoTracking().ToList();
         }
     }
 }

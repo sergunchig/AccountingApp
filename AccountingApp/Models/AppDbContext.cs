@@ -18,9 +18,20 @@ namespace AccountingApp.Models
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionStr = "Host=localhost;Port=5432;Database=MyAccountingDb;Username=postgres;Password=admin";
+            var connectionStr = Properties.Settings.Default.DbConnection;
             optionsBuilder.UseNpgsql(connectionStr);
             base.OnConfiguring(optionsBuilder);
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Cost>()
+            .Property(p => p.Date)
+            .HasConversion
+    (
+            src => src.Kind == DateTimeKind.Utc ? src : DateTime.SpecifyKind(src, DateTimeKind.Utc),
+            dst => dst.Kind == DateTimeKind.Utc ? dst : DateTime.SpecifyKind(dst, DateTimeKind.Utc)
+    );
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

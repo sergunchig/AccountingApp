@@ -9,6 +9,36 @@
       Title="StatisticsPage">
 
     <Grid>
-        <TextBlock Text="Statistics" FontSize="50"/>
+        <TextBlock Text="Год:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,0"/>
+        <ComboBox x:Name="yearsCBx" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,10,0,0" SelectionChanged="yearsCBx_SelectionChanged"/>
+        <DataGrid x:Name="StatDg" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,40,0,0" 
+                  Visibility="Hidden" CanUserAddRows="False">
+            <DataGrid.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="Margin" Value="0,0,0,5"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                        <Expander IsExpanded="True">
+                                            <Expander.Header>
+                                                <DockPanel>
+                                                    <TextBlock FontWeight="Bold" Text="{Binding Path=Name}"/>
+                                                </DockPanel>
+                                            </Expander.Header>
+                                            <Expander.Content>
+                                                <ItemsPresenter />
+                                            </Expander.Content>
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+            </DataGrid.GroupStyle>
+        </DataGrid>
+        
     </Grid>
 </Page>
